@@ -18,7 +18,7 @@
   </div>
   <div class="guest-name">
   <p>Untuk:</p>
-  <h2>Nama Tamu</h2>
+  <h2 id="guest-name">Nama Tamu</h2>
 </div>
   <button onclick="openInvitation()">Buka Undangan</button>
 </div>
@@ -39,28 +39,29 @@ tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu..”
 
 <section class="pengantin-section">
   <div class="pengantin-wrapper">
-      <div class="pengantin-wrapper">
     <p class="undangan-text">
       Tanpa mengurangi rasa hormat,<br>
       Kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian<br>
       untuk menghadiri acara pernikahan kami.
     </p>
-    <div class="pengantin">
-      <img src="img/g5.1.png" alt="Pengantin A" class="pengantin-foto" onclick="showPopup('A')">
-      <h3 class="pengantin-nama">Kadek Darmawan</h3>
-      <div class="ortu">
-        <p>Putra Ke 2 dari</p>
-        <p>Bapak I Nyoman Supatrayasa</p>
-        <p>Ibu Ni Nyoman Sukerti</p>
+    <div class="pengantin-container">
+      <div class="pengantin">
+        <img src="img/g5.1.jpg" alt="Pengantin A" class="pengantin-foto" onclick="showPopup('A')">
+        <h3 class="pengantin-nama">Kadek Darmawan</h3>
+        <div class="ortu">
+          <p>Putra Ke 2 dari</p>
+          <p>Bapak I Nyoman Supatrayasa</p>
+          <p>Ibu Ni Nyoman Sukerti</p>
+        </div>
       </div>
-    </div>
-    <div class="pengantin">
-      <img src="img/g6.1.png" alt="Pengantin O" class="pengantin-foto" onclick="showPopup('O')">
-      <h3 class="pengantin-nama">Ni Luh Ade Octaviani</h3>
-      <div class="ortu">
-        <p>Putri ke 2 dari</p>
-        <p>Bapak I Ketut Artha</p>
-        <p>Ibu Ni Nengah Sulendri</p>
+      <div class="pengantin">
+        <img src="img/g6.1.jpg" alt="Pengantin O" class="pengantin-foto" onclick="showPopup('O')">
+        <h3 class="pengantin-nama">Ni Luh Ade Octaviani</h3>
+        <div class="ortu">
+          <p>Putri ke 2 dari</p>
+          <p>Bapak I Ketut Artha</p>
+          <p>Ibu Ni Nengah Sulendri</p>
+        </div>
       </div>
     </div>
   </div>
@@ -93,26 +94,26 @@ tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu..”
   <div class="grid">
     <!-- G1 Slideshow -->
     <div class="slideshow" data-delay="3000">
-      <img src="img/g1.1.png" class="active" />
-      <img src="img/g1.2.png" />
+      <img src="img/g1.1.jpg" class="active" />
+      <img src="img/g1.2.jpg" />
     </div>
 
     <!-- G2 Slideshow -->
     <div class="slideshow" data-delay="3000">
-      <img src="img/g2.1.png" class="active" />
-      <img src="img/g2.2.png" />
+      <img src="img/g2.1.jpg" class="active" />
+      <img src="img/g2.2.jpg" />
     </div>
 
     <!-- G5 Slideshow -->
     <div class="slideshow" data-delay="3000">
-      <img src="img/g5.1.png" class="active" />
-      <img src="img/g5.2.png" />
+      <img src="img/g7.1.jpg" class="active" />
+      <img src="img/g5.2.jpg" />
     </div>
 
     <!-- G6 Slideshow -->
     <div class="slideshow" data-delay="3000">
-      <img src="img/g6.1.png" class="active" />
-      <img src="img/g6.2.png" />
+      <img src="img/g7.2.jpg" class="active" />
+      <img src="img/g6.2.jpg" />
     </div>
   </div>
 </section>
@@ -149,12 +150,12 @@ tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu..”
 
 </section>
 <!-- RSVP -->
-<form id="rsvp-form">
+<form id="rsvp-form" action="https://formsubmit.co/itssdummy987@gmail.com" method="POST">
   <h2>Konfirmasi Kehadiran</h2>
   <label><input type="radio" name="attendance" value="yes"> Saya akan hadir</label><br>
   <label><input type="radio" name="attendance" value="no"> Maaf, saya tidak bisa hadir</label><br><br>
 
-  <input type="text" name="name" placeholder="Nama Anda" required><br>
+  <input type="text" name="name" id="g-name" placeholder="Nama Anda" required><br>
   <button type="submit">Kirim</button>
 </form>
 
@@ -213,6 +214,68 @@ tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu..”
 
   document.querySelectorAll('.gallery-img').forEach(img => {
     observer.observe(img);
+  });
+
+  // AOS-like animation observer for pengantin section
+  const aosObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add animation class to the element
+        entry.target.classList.add("aos-animate");
+        
+        // If it's a pengantin container, animate its children with delays
+        if (entry.target.classList.contains('pengantin-section')) {
+          const undanganText = entry.target.querySelector('.undangan-text');
+          const photos = entry.target.querySelectorAll('.pengantin-foto');
+          const names = entry.target.querySelectorAll('.pengantin-nama');
+          const ortus = entry.target.querySelectorAll('.ortu');
+          
+          // Animate text first
+          setTimeout(() => {
+            if (undanganText) undanganText.classList.add('aos-animate');
+          }, 200);
+          
+          // Animate photos with stagger
+          photos.forEach((photo, index) => {
+            setTimeout(() => {
+              photo.classList.add('aos-animate');
+            }, 400 + (index * 200));
+          });
+          
+          // Animate names and family info
+          names.forEach((name, index) => {
+            setTimeout(() => {
+              name.classList.add('aos-animate');
+            }, 800 + (index * 200));
+          });
+          
+          ortus.forEach((ortu, index) => {
+            setTimeout(() => {
+              ortu.classList.add('aos-animate');
+            }, 1000 + (index * 200));
+          });
+        }
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // Observe pengantin section
+  document.querySelectorAll('.pengantin-section').forEach(section => {
+    aosObserver.observe(section);
+  });
+
+  // Generic AOS observer for other elements
+  const genericAOSObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("aos-animate");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Add AOS to other sections
+  document.querySelectorAll('.doa-restu, .gallery h2, .countdown-section, .info-acara, .closing-message').forEach(element => {
+    genericAOSObserver.observe(element);
   });
 </script>
 <script>
@@ -308,6 +371,7 @@ tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu..”
   // Ubah tanda plus menjadi spasi dan tampilkan jika ada
   if (guest) {
     document.getElementById('guest-name').textContent = decodeURIComponent(guest.replace(/\+/g, ' '));
+    document.getElementById('g-name').value = decodeURIComponent(guest.replace(/\+/g, ' '));
   }
 </script>
 <audio id="bg-music" autoplay loop>
@@ -352,10 +416,10 @@ function closePopup() {
     const name = document.getElementById("popup-name");
 
     if (person === "A") {
-      img.src = "img/g5.1.png";
+      img.src = "img/g5.1.jpg";
       name.textContent = "Kadek Darmawan";
     } else if (person === "O") {
-      img.src = "img/g6.1.png";
+      img.src = "img/g6.1.jpg";
       name.textContent = "Ni Luh Ade Octaviani";
     }
 
