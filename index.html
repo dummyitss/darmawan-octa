@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Darmawan & Ade Octa</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero Section -->
+<div class="hero" id="openBtn">
+  <div class="overlay">
+    <h1>Darmawan & Ade Octa</h1>
+      <p>You're invited to our special day</p>
+      <p>29 Agustus 2025</p>
+  </div>
+  <div class="guest-name">
+  <p>Untuk:</p>
+  <h2>Nama Tamu</h2>
+</div>
+  <button onclick="openInvitation()">Buka Undangan</button>
+</div>
+
+  <!-- Konten Undangan -->
+  <div class="content" id="content">
+    <section class="doa-restu">
+  <div class="container">
+    <p>Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe.
+ “(Reg Veda : X.85.42)</p>
+  <p>Artinya :
+Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. 
+Semoga kalian mencapai hidup penuh kebahagiaan, 
+tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu..”
+    </p>
+  </div>
+</section>
+
+<section class="pengantin-section">
+  <div class="pengantin-wrapper">
+      <div class="pengantin-wrapper">
+    <p class="undangan-text">
+      Tanpa mengurangi rasa hormat,<br>
+      Kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian<br>
+      untuk menghadiri acara pernikahan kami.
+    </p>
+    <div class="pengantin">
+      <img src="img/g5.1.png" alt="Pengantin A" class="pengantin-foto" onclick="showPopup('A')">
+      <h3 class="pengantin-nama">Kadek Darmawan</h3>
+      <div class="ortu">
+        <p>Putra Ke 2 dari</p>
+        <p>Bapak I Nyoman Supatrayasa</p>
+        <p>Ibu Ni Nyoman Sukerti</p>
+      </div>
+    </div>
+    <div class="pengantin">
+      <img src="img/g6.1.png" alt="Pengantin O" class="pengantin-foto" onclick="showPopup('O')">
+      <h3 class="pengantin-nama">Ni Luh Ade Octaviani</h3>
+      <div class="ortu">
+        <p>Putri ke 2 dari</p>
+        <p>Bapak I Ketut Artha</p>
+        <p>Ibu Ni Nengah Sulendri</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Popup Modal -->
+<div id="popup" class="popup-overlay" onclick="closePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <img id="popup-img" src="" alt="Foto Pengantin" />
+    <h3 id="popup-name"></h3>
+    <button onclick="closePopup()">Tutup</button>
+  </div>
+</div>
+
+</section>
+
+<!-- Popup Info -->
+<div id="popup-info" class="popup hidden">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h3 id="popup-nama"></h3>
+    <p id="popup-deskripsi">Deskripsi singkat bisa diisi nanti.</p>
+  </div>
+</div>
+
+
+<section class="gallery">
+  <h2>Galeri Kenangan</h2>
+  <div class="grid">
+    <!-- G1 Slideshow -->
+    <div class="slideshow" data-delay="3000">
+      <img src="img/g1.1.png" class="active" />
+      <img src="img/g1.2.png" />
+    </div>
+
+    <!-- G2 Slideshow -->
+    <div class="slideshow" data-delay="3000">
+      <img src="img/g2.1.png" class="active" />
+      <img src="img/g2.2.png" />
+    </div>
+
+    <!-- G5 Slideshow -->
+    <div class="slideshow" data-delay="3000">
+      <img src="img/g5.1.png" class="active" />
+      <img src="img/g5.2.png" />
+    </div>
+
+    <!-- G6 Slideshow -->
+    <div class="slideshow" data-delay="3000">
+      <img src="img/g6.1.png" class="active" />
+      <img src="img/g6.2.png" />
+    </div>
+  </div>
+</section>
+<section class="section-wrapper">
+<section class="countdown-section">
+  <h2 style="color: white;">Menuju Hari Bahagia;</h2>
+  <div class="countdown">
+    <div><span id="days">00</span><p>Hari</p></div>
+    <div><span id="hours">00</span><p>Jam</p></div>
+    <div><span id="minutes">00</span><p>Menit</p></div>
+    <div><span id="seconds">00</span><p>Detik</p></div>
+  </div>
+</section>
+
+<section class="quote dark-theme">
+  <blockquote>
+    <span>Hari/Tanggal : Jumat, 29 Agustus 2025</span>
+    <span>Pukul : 14.00 - 21.00 WITA</span>
+    <span>Lokasi : Kenyeri Garden & Shala, Klungkung</span>
+  </blockquote>
+</section>
+
+    <section class="info-acara">
+      <section class="location-calendar">
+  <h2 style="text-align:center; color: white;">Lokasi & Tanggal</h2>
+<div style="text-align:center; color: white;">
+    <!-- tombol maps dan calendar disini -->
+  </div>
+</section>
+
+ <a href="https://maps.app.goo.gl/xH674v1Eqv1YkXEb8" target="_blank" class="btn-link">📍 Lihat Lokasi di Google Maps</a>
+
+<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Darmawan+%26+Ade+Octa&dates=20250829T010000Z/20250829T040000Z&details=Undangan+pernikahan+kami.+Lokasi+acara:+https%3A%2F%2Fmaps.app.goo.gl%2FxH674v1Eqv1YkXEb8" target="_blank" class="btn-link">📅 Tambahkan ke Google Calendar</a>
+
+</section>
+<!-- RSVP -->
+<form id="rsvp-form">
+  <h2>Konfirmasi Kehadiran</h2>
+  <label><input type="radio" name="attendance" value="yes"> Saya akan hadir</label><br>
+  <label><input type="radio" name="attendance" value="no"> Maaf, saya tidak bisa hadir</label><br><br>
+
+  <input type="text" name="name" placeholder="Nama Anda" required><br>
+  <button type="submit">Kirim</button>
+</form>
+
+<!-- Hadiah / Rekening -->
+<div id="gift-section" class="gift-section" style="display: none;">
+  <h2>Kirim Tanda Kasih</h2>
+  <p>Jika berhalangan hadir namun ingin berbagi kebahagiaan, bisa kirim hadiah ke rekening berikut:</p>
+
+  <div id="rekening-info" style="display: none;" class="rekening-box">
+  <h3>Informasi Rekening</h3>
+  <img src="img/ogo-bni.png" alt="Logo BNI" class="bank-logo">
+  <p><strong>No. Rekening:</strong> 0730681443</p>
+  <p><strong>Atas Nama:</strong> Ni Luh Ade Octaviani</p>
+</div>
+
+  </div>
+  <section class="closing-message">
+  <h2>Besar Harapan Kami</h2>
+  <p>
+    untuk dapat berbagi kebahagiaan bersama Bapak/Ibu/Saudara/i sekalian di hari istimewa kami.
+    <br><br>
+    Kehadiran dan doa restu Anda akan menjadi <strong>anugerah yang besar</strong> dalam hidup kami.
+  </p>
+  <p class="with-love">Dengan penuh cinta,<br><strong>Darmawan & Ade Octa</strong></p>
+</section>
+</div>
+
+
+</section>
+
+
+  </div>
+
+  <script>
+    function openInvitation() {
+      document.getElementById("openBtn").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  <script>
+  function openInvitation() {
+    document.getElementById("openBtn").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Scroll animation for gallery images
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.gallery-img').forEach(img => {
+    observer.observe(img);
+  });
+</script>
+<script>
+  document.querySelectorAll(".slideshow").forEach(container => {
+    const slides = container.querySelectorAll("img");
+    let index = 0;
+
+    if (slides.length === 0) return;
+
+    slides[index].classList.add("active");
+
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, parseInt(container.dataset.delay) || 3000);
+  });
+</script>
+<script>
+  const targetDate = new Date("August 29, 2025 00:00:00").getTime();
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.querySelector(".countdown").innerHTML = "<p>Acara Telah Dimulai!</p>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = String(days).padStart(2, "0");
+    document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+  }, 1000);
+</script>
+<script>
+  // Menampilkan bagian hadiah jika memilih "tidak hadir"
+  document.querySelectorAll('input[name="attendance"]').forEach((input) => {
+    input.addEventListener('change', () => {
+      const giftSection = document.getElementById('gift-section');
+      if (input.value === 'no') {
+        giftSection.style.display = 'block';
+      } else {
+        giftSection.style.display = 'none';
+      }
+    });
+  });
+
+  // Fungsi salin nomor rekening
+  function copyRekening(id) {
+    const number = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(number).then(() => {
+      alert("Nomor rekening berhasil disalin!");
+    });
+  }
+</script>
+<script>
+  const radios = document.querySelectorAll('input[name="attendance"]');
+  const rekeningInfo = document.getElementById('rekening-info');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'no') {
+        rekeningInfo.style.display = 'block';
+      } else {
+        rekeningInfo.style.display = 'none';
+      }
+    });
+  });
+</script>
+<script>
+  function salinRekening() {
+    const rekening = document.getElementById("no-rekening").innerText;
+    navigator.clipboard.writeText(rekening).then(() => {
+      alert("Nomor rekening berhasil disalin!");
+    }).catch(err => {
+      alert("Gagal menyalin nomor rekening.");
+    });
+  }
+</script>
+<script>
+  // Ambil parameter "to" dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const guest = urlParams.get('to');
+
+  // Ubah tanda plus menjadi spasi dan tampilkan jika ada
+  if (guest) {
+    document.getElementById('guest-name').textContent = decodeURIComponent(guest.replace(/\+/g, ' '));
+  }
+</script>
+<audio id="bg-music" autoplay loop>
+  <source src="audio/lagu.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung audio.
+</audio>
+<button onclick="toggleMusic()" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+  🔊
+</button>
+
+<script>
+  const music = document.getElementById("bg-music");
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  } 
+</script>
+<script>
+function showPopup(nama) {
+  document.getElementById('popup-info').classList.remove('hidden');
+  if (nama === 'A') {
+    document.getElementById('popup-nama').textContent = 'Kadek Darmawan';
+    document.getElementById('popup-deskripsi').textContent = 'Putra dari Bapak I Nyoman Supatrayasa & Ibu Ni Nyoman Sukerti.';
+  } else if (nama === 'O') {
+    document.getElementById('popup-nama').textContent = 'Ni Luh Ade Octaviani';
+    document.getElementById('popup-deskripsi').textContent = 'Putra dari Bapak I Ketut Artha & Ibu Ni Nengah Sulendri.';
+  }
+}
+
+function closePopup() {
+  document.getElementById('popup-info').classList.add('hidden');
+}
+</script>
+<script>
+  function showPopup(person) {
+    const popup = document.getElementById("popup");
+    const img = document.getElementById("popup-img");
+    const name = document.getElementById("popup-name");
+
+    if (person === "A") {
+      img.src = "img/g5.1.png";
+      name.textContent = "Kadek Darmawan";
+    } else if (person === "O") {
+      img.src = "img/g6.1.png";
+      name.textContent = "Ni Luh Ade Octaviani";
+    }
+
+    popup.style.display = "flex";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+
+
+
+</body>
+</html>
